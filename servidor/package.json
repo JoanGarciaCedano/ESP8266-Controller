@@ -1,0 +1,14 @@
+{
+  "name": "servidor",
+  "version": "1.0.0",
+  "description": "Servidor creado en NodeJS sobre API REST para control de Chips ESP8266",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joan García Cedano",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
