@@ -18,3 +18,21 @@ _Express JS.- es suna infraestructura de aplicacioens web Node.js mínima y flexi
 de características para las aplicaciones web y móviles _
 
 ```
+
+**3.- Se crea el servidor conectado con Expressjs**
+
+```
+'use strict'
+
+//Cargamos el paquete express
+var express = require('express');
+//Llamamos a Express
+var app = express();
+var port = 3000;
+//Creamos el servidor
+app.listen(port, () =>{
+    console.log(`Servidor ejecutandose en http://localhost:${port}`);
+});
+
+
+```
