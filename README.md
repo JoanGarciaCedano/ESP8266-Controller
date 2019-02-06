@@ -36,3 +36,12 @@ app.listen(port, () =>{
 
 
 ```
+
+**4.- Instalamos BodyParser y Nodemon**
+
+```
+BodyParser.- Es usado para parsear los datos que lleguen al servidor en formato POST, es un middleware que se ejecuta justo antes de correr el código en Node.js
+
+Nodemon.- Es una herramienta que nos permite recargar el servicio automaticamente, creando un script llamado "start" : "nodemon index.js" dentro del package.json
+
+```
