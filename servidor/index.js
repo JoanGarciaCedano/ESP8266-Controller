@@ -1,35 +1,26 @@
 'use strict'
 
-//Cargamos el paquete express
-const express = require('express');
-//Cargamos el paquete bodyParser
-const bodyParser = require('body-parser');
+//Cargamos mongoose como ORM
+const mongoose =  require('mongoose');
 
-//Llamamos a Express
-const app = express();
+//Cargamos el contenido de app.js
+const app = require('./app')
+
+//Definimos el puerto dinamicamente para la ejecución del servidor
 const port = process.env.PORT || 3000;
 
-//Usamos BodyParser en nuestra APP
-app.use(bodyParser.urlencoded({extended:false}));
+//Conectamos la base de datos a la aplicación
+mongoose.connect('mongodb://localhost:27017/esp8266_database', { useNewUrlParser: true, useCreateIndex: true }, (err, res) =>{
 
-//Parseamos lo que venga por la URLENCODED en JSON
-app.use(bodyParser.json());
+      if(err){
+        throw err;
+      }else{
+        console.log("Base de datos Mongo conectada via Mongoose");
+        //Creamos el servidor
+        app.listen(port, () => {
+          console.log(`Servidor ejecutandose en http://localhost:${port}`);
+          console.log("Nodemon funcionando");
+        });
+      }
 
-//Creamos las rutas
-app.get('/prueba/:nombre?', (req, res) =>{   
-
-   const { nombre = 'SIN NOMBRE' } = req.params;
-    res.status(200).json({
-      data: [2, 3, 4],
-      mensaje: `respuesta de URL /prueba ${nombre}`
-    });
 });
-
-
-
-//Creamos el servidor
-app.listen(port, () =>{
-    console.log(`Servidor ejecutandose en http://localho|st:${port}`);
-    console.log("Nodemon funcionando");
-});
-
